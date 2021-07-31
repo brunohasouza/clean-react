@@ -1,0 +1,21 @@
+// @import './../../styles/colors.scss';
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  
+  input {
+    width: 100%;
+    padding-right: 28px;
+  }
+
+  .status {
+    position: absolute;
+    right: 8px;
+    font-size: 12px;
+    line-height: 12px;
+    cursor: help;
+  }
+}
