@@ -65,4 +65,16 @@ describe('Login Component', () => {
       email: fakeEmail
     })
   })
+
+  test('Should call Validation with correct password', () => {
+    const { sut, validationSpy } = makeSut()
+    const fakePassword = faker.internet.password()
+    const passwordInput = sut.getByTestId('password')
+
+    fireEvent.input(passwordInput, { target: { value: fakePassword } })
+
+    expect(validationSpy.input).toEqual({
+      password: fakePassword
+    })
+  })
 })
