@@ -5,7 +5,7 @@ import { createMemoryHistory } from 'history'
 import 'jest-localstorage-mock'
 import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react'
 
-import Login from './login'
+import { Login } from '@/presentation/pages'
 import { AuthenticationSpy, ValidationStub } from '@/presentation/test'
 import { InvalidCredentialError } from '@/domain/errors'
 
