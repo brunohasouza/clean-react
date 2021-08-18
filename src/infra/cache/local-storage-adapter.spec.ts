@@ -5,9 +5,9 @@ import { LocalStorageAdapter } from './local-storage-adapter'
 const makeSut = (): LocalStorageAdapter => new LocalStorageAdapter()
 
 describe('LocalStorageAdapter', () => {
-	beforeEach(() => {
-		localStorage.clear()
-	})
+  beforeEach(() => {
+    localStorage.clear()
+  })
 
   test('Should call localStorage with correct values', async () => {
     const sut = makeSut()
@@ -16,6 +16,6 @@ describe('LocalStorageAdapter', () => {
 
     await sut.set(key, value)
 
-		expect(localStorage.setItem).toHaveBeenCalledWith(key, value)
+    expect(localStorage.setItem).toHaveBeenCalledWith(key, value)
   })
 })

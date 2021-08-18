@@ -10,7 +10,7 @@ import { InvalidCredentialError } from '@/domain/errors'
 
 type SutTypes = {
   sut: RenderResult
-  authenticationSpy: AuthenticationSpy,
+  authenticationSpy: AuthenticationSpy
   saveAccessTokenMock: SaveAccessTokenMock
 }
 
@@ -28,8 +28,8 @@ const makeSut = (params?: SutParams): SutTypes => {
   validationStub.errorMessage = params?.validationError
   const sut = render(
     <Router history={history}>
-      <Login 
-        validation={validationStub} 
+      <Login
+        validation={validationStub}
         authentication={authenticationSpy}
         saveAccessToken={saveAccessTokenMock}
       />
@@ -197,7 +197,7 @@ describe('Login Component', () => {
     const mainError = sut.getByTestId('main-error')
 
     expect(mainError.textContent).toBe(error.message)
-    expect(errorWrap.childElementCount).toBe(1)    
+    expect(errorWrap.childElementCount).toBe(1)
   })
 
   test('Should go to signup page', () => {

@@ -8,7 +8,7 @@ import { Authentication, SaveAccessToken } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
-  authentication: Authentication,
+  authentication: Authentication
   saveAccessToken: SaveAccessToken
 }
 
@@ -47,7 +47,7 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
         password: state.password,
         email: state.email
       })
-      
+
       await saveAccessToken.save(account.accessToken)
       history.replace('/')
     } catch (error) {
