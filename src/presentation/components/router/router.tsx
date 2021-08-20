@@ -1,4 +1,5 @@
 import React from 'react'
+import { Signup } from '@/presentation/pages'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 type Props = {
@@ -10,6 +11,7 @@ const Router: React.FC<Props> = ({ makeLogin }: Props) => {
     <BrowserRouter>
       <Switch>
         <Route path="/login" component={makeLogin}/>
+        <Route path="/signup" component={Signup}/>
       </Switch>
     </BrowserRouter>
   )
