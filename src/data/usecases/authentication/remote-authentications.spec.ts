@@ -2,7 +2,7 @@ import faker from 'faker'
 
 import { RemoteAuthentication } from './remote-authentication'
 import { HttpPostClientSpy } from '@/data/test'
-import { InvalidCredentialError, UnexpectedError } from '@/domain/errors'
+import { InvalidCredentialsError, UnexpectedError } from '@/domain/errors'
 import { HttpStatusCode } from '@/data/protocols/http'
 import { AuthenticationParams } from '@/domain/usecases'
 import { AccountModel } from '@/domain/models'
@@ -39,14 +39,14 @@ describe('RemoteAuthentication', () => {
     expect(httpPostClientSpy.body).toEqual(authenticationParams)
   })
 
-  test('Should show InvalidCredentialError if HttpPostClient returns 401', async () => {
+  test('Should show InvalidCredentialsError if HttpPostClient returns 401', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     httpPostClientSpy.response = {
       statusCode: HttpStatusCode.unauthorized
     }
     const promise = sut.auth(mockAuthentication())
 
-    await expect(promise).rejects.toThrow(new InvalidCredentialError())
+    await expect(promise).rejects.toThrow(new InvalidCredentialsError())
   })
 
   test('Should show UnexpectedError if HttpPostClient returns 400', async () => {
