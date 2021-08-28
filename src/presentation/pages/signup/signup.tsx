@@ -7,12 +7,12 @@ import { Validation } from '@/presentation/protocols/validation'
 import { AddAccount, SaveAccessToken } from '@/domain/usecases'
 
 type Props = {
-  validation: Validation,
-  addAccount: AddAccount,
+  validation: Validation
+  addAccount: AddAccount
   saveAccessToken: SaveAccessToken
 }
 
-const Signup: React.FC<Props> = ({ validation, addAccount, saveAccessToken }) => {
+const Signup: React.FC<Props> = ({ validation, addAccount, saveAccessToken }: Props) => {
   const history = useHistory()
   const [state, setState] = useState({
     isLoading: false,
