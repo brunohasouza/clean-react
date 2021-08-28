@@ -4,7 +4,7 @@ import { FieldValidation } from '@/validation/protocols'
 export class MinLengthValidation implements FieldValidation {
   constructor (readonly field: string, private readonly minLegth: number) {}
 
-  validate (value: string): Error {
-    return value.length >= this.minLegth ? null : new InvalidFieldError(this.field)
+  validate (input: object): Error {
+    return input[this.field]?.length < this.minLegth ? new InvalidFieldError(this.field) : null
   }
 }
