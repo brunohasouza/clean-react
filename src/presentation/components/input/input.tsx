@@ -12,7 +12,7 @@ const Input: React.FC<Props> = (props: Props) => {
   const error = state[`${props.name}Error`]
 
   return (
-    <div 
+    <div
       data-testid={`${props.name}-wrap`}
       className={Styles.inputWrap}
       data-status={error ? 'invalid' : 'valid'}

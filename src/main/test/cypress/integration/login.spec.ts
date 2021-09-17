@@ -19,7 +19,6 @@ describe('Login', () => {
       .should('have.attr', 'title', 'Campo obrigatório')
       .should('have.attr', 'readonly')
     cy.getByTestId('password-label').should('have.attr', 'title', 'Campo obrigatório')
-      
 
     cy.getByTestId('submit').should('have.attr', 'disabled')
     cy.getByTestId('error-wrap').should('not.have.descendants')
@@ -30,7 +29,7 @@ describe('Login', () => {
     cy.getByTestId('email-wrap').should('have.attr', 'data-status', 'invalid')
     cy.getByTestId('email').should('have.attr', 'title', 'Campo email inválido')
     cy.getByTestId('email-label').should('have.attr', 'title', 'Campo email inválido')
-    
+
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(3))
     cy.getByTestId('password-wrap').should('have.attr', 'data-status', 'invalid')
     cy.getByTestId('password').should('have.attr', 'title', 'Campo password inválido')
@@ -45,7 +44,7 @@ describe('Login', () => {
     cy.getByTestId('email-wrap').should('have.attr', 'data-status', 'valid')
     cy.getByTestId('email').should('not.have.attr', 'title')
     cy.getByTestId('email-label').should('not.have.attr', 'title')
-    
+
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(5))
     cy.getByTestId('password-wrap').should('have.attr', 'data-status', 'valid')
     cy.getByTestId('password').should('not.have.attr', 'title')
@@ -63,7 +62,7 @@ describe('Login', () => {
       }
     })
 
-    cy.getByTestId('email').focus().type(faker.internet.email())    
+    cy.getByTestId('email').focus().type(faker.internet.email())
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(5))
     cy.getByTestId('submit').click()
     cy.getByTestId('spinner').should('not.exist')
@@ -79,7 +78,7 @@ describe('Login', () => {
       }
     })
 
-    cy.getByTestId('email').focus().type(faker.internet.email())    
+    cy.getByTestId('email').focus().type(faker.internet.email())
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(5))
     cy.getByTestId('submit').click()
     cy.getByTestId('spinner').should('not.exist')
@@ -112,7 +111,7 @@ describe('Login', () => {
       }
     })
 
-    cy.getByTestId('email').focus().type(faker.internet.email())    
+    cy.getByTestId('email').focus().type(faker.internet.email())
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(5)).type('{enter}')
     cy.getByTestId('spinner').should('not.exist')
     cy.getByTestId('main-error').should('contain.text', 'Algo de errado aconteceu. Tente novamente em breve.')
@@ -127,7 +126,7 @@ describe('Login', () => {
       }
     }).as('request')
 
-    cy.getByTestId('email').focus().type(faker.internet.email())    
+    cy.getByTestId('email').focus().type(faker.internet.email())
     cy.getByTestId('password').focus().type(faker.random.alphaNumeric(5))
     cy.getByTestId('submit').dblclick()
     cy.get('@request.all').should('have.length', 1)

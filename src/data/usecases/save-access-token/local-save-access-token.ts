@@ -9,8 +9,7 @@ export class LocalSaveAccessToken implements SaveAccessToken {
     if (!accessToken) {
       throw new UnexpectedError()
     }
-    
+
     await this.setStorage.set('accessToken', accessToken)
   }
 }
-2
