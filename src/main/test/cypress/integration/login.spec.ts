@@ -20,7 +20,7 @@ describe('Login', () => {
   it('Should load with correct initial state', () => {
     cy.getByTestId('email').should('have.attr', 'readonly')
     FormHelper.testInputStatus('email', 'Campo obrigatório')
-    
+
     cy.getByTestId('password').should('have.attr', 'readonly')
     FormHelper.testInputStatus('password', 'Campo obrigatório')
 
