@@ -96,7 +96,7 @@ const Signup: React.FC<Props> = ({ validation, addAccount, saveAccessToken }: Pr
           <Input
             type="password"
             name="password"
-            placeholder="Digite sua senha"
+            placeholder="Digite sua senha2"
           />
           <Input
             type="password"

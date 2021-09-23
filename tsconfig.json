@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "sourceMap": true,
     "jsx": "react",
     "rootDir": "src",
     "baseUrl": "src",
