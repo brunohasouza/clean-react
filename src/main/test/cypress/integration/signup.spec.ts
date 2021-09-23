@@ -1,6 +1,6 @@
 import faker from 'faker'
 import * as FormHelper from './../support/form-helper'
-import * as Http from '../support/signup-mocks'
+import * as Http from './../support/signup-mocks'
 
 const simulateValidSubmit = (): void => {
   const password = faker.random.alphaNumeric(5)
@@ -75,6 +75,13 @@ describe('Signup', () => {
 
     simulateValidSubmit()
     FormHelper.testMainError('Este e-mail já está em uso')
+    FormHelper.testUrl('/signup')
+  })
+
+  it('Should present UnexpectedError on default error cases', () => {
+    Http.mockUnexpectedError()
+    simulateValidSubmit()
+    FormHelper.testMainError('Algo de errado aconteceu. Tente novamente em breve.')
     FormHelper.testUrl('/signup')
   })
 })
